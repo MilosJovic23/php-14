@@ -13,7 +13,17 @@
 
 
     $email = $_POST["email"];
-    $password = $_POST["password"];
+    $password = password_hash($_POST["password"],PASSWORD_BCRYPT);
 
 
-    $baza->query("INSERT INTO korisnici(email,sifra) VALUES('$email','$password')");
+    $proveraEmaila = $baza->query("SELECT * FROM korisnici WHERE email='$email'");
+
+    if( $proveraEmaila->num_rows == 1 ){
+        die("U nasoj bazi postoji korisnik sa tom email-adresom");
+    }
+    else {
+        $baza->query("INSERT INTO korisnici(email,sifra) VALUES('$email','$password')");
+    }
+
+
+
