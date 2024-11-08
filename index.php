@@ -9,7 +9,7 @@
         <title>Document</title>
     </head>
     <body>
-        <form method="POST" aciton="pretraga.php">
+        <form method="POST" action="modeli/pretraga.php">
             <input type="text" name="email" placeholder="unesite email" required>
             <button type="submit">pretrazi</button>
         </form>
