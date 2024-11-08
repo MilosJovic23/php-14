@@ -13,11 +13,12 @@
     $proverEmaila = $_POST["email"];
 
 
-    $rezultat = $baza->query("SELECT * FROM korisnici WHERE email = '$proverEmaila'");
+    $rezultat = $baza->query("SELECT * FROM korisnici WHERE email LIKE '%$proverEmaila%'");
+
 
 
     if ( $rezultat->num_rows >= 1 ) {
-        die("Pronasli korisnika sa tim emailom");
+        die("Pronasli smo ".$rezultat->num_rows." korisnika sa tim podacima");
     } else {
-        die("Nismo pronasli korisnika sa tim emailom");
+        die("Nismo pronasli korisnika sa tim podacima");
     }
