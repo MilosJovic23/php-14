@@ -23,14 +23,13 @@
 
 
 
-    $ime = $_GET["ime"];
-    $opis = $_GET["opis"];
-    $cena = $_GET["cena"];
-    $slika = $_GET["slika"];
-    $kolicina = $_GET["kolicina"];
+    $ime = mysqli_real_escape_string($baza, $_GET["ime"]) ;
+    $opis = mysqli_real_escape_string($baza,$_GET["opis"]);
+    $cena = mysqli_real_escape_string($baza,$_GET["cena"]);
+    $slika = mysqli_real_escape_string($baza,$_GET["slika"]);
+    $kolicina = mysqli_real_escape_string($baza,$_GET["kolicina"]);
 
 
-    var_dump($_GET);
 
     $baza->query("INSERT INTO proizvodi(ime,opis,cena,slika,kolicina) VALUES('$ime','$opis','$cena','$slika','$kolicina')");
 

@@ -5,7 +5,7 @@
     require_once "baza.php";
 
 
-    $pretraga = $_GET["pretraga"];
+    $pretraga = mysqli_real_escape_string( $baza,$_GET["pretraga"] ) ;
 
     var_dump($pretraga);
 
