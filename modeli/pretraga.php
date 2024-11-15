@@ -10,7 +10,7 @@
     }
 
 
-    $proverEmaila = $_POST["email"];
+    $proverEmaila = mysqli_real_escape_string( $baza, $_POST["email"]);
 
 
     $rezultat = $baza->query("SELECT * FROM korisnici WHERE email LIKE '%$proverEmaila%'");
